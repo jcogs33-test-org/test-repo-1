@@ -20,5 +20,5 @@ declare function getMongooseQuery(): mongoose.Query;
 app.post("/find", (req, res) => {
   let v = JSON.parse(req.body.x); // $ Source
   getMongooseModel().find({ id: v }); // $ Alert
-  getMongooseQuery().find({ id: v }); // $ Alert
+  getMongooseQuery().find({ id: { $eq: v } }); // $ Alert
 });
